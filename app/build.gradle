@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "ie.csis.app.dicosaure"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 3
+        versionName "1.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        packagingOptions {
+            exclude 'META-INF/jdom-compileKotlin.kotlin_module'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:preference-v14:23.2.0+'
+    compile 'com.android.support:design:+'
+    compile 'com.android.support:appcompat-v7:+'
+    compile "org.jonnyzzz.kotlin.xml.bind:jdom:0.1.9"
+    compile 'net.rdrei.android.dirchooser:library:2.1@aar'
+    compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.android.support:gridlayout-v7:+'
+    testCompile 'junit:junit:4.6'
+    compile 'com.android.support:support-annotations:+'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'org.jetbrains.anko:anko-sqlite:0.8.3'
+    compile 'org.apache.httpcomponents:httpcore:+'
+    compile 'org.apache.httpcomponents:httpclient:+'
+    compile 'org.apache.commons:commons-io:+'
+}
+repositories {
+
+}

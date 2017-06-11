@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ie.csis.app.dicosaure.views" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ie.csis.app.dicosaure.views.activities.ListWordsActivity"
+            android:label="@string/list_words_activity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.AdvancedSearchResultActivity"
+            android:label="@string/title_activity_advanced_search_result"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="ie.csis.app.dicosaure.views.csv.CSVExport"
+            android:label="@string/title_activity_csvexport"
+            android:parentActivityName="ie.csis.app.dicosaure.views.activities.ListWordsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ie.csis.app.dicosaure.views.activities.ListWordsActivity" />
+        </activity>
+
+        <!-- external libraries -->
+        <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity" />
+        <activity
+            android:name=".activities.SetLanguageKot"
+            android:label="@string/title_activity_language"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AboutActivityKot"
+            android:label="@string/about"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.WordViewEditActivity"
+            android:label="Word View"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.WordViewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.WordViewActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.WordViewActivity"
+            android:label="Word View"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.WordViewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.WordViewActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.InternetImport"
+            android:label="Import from Internet"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+    </application>
+
+</manifest>
